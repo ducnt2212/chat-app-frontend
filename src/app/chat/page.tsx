@@ -9,11 +9,11 @@ import {
 
 export default function ChatPage() {
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden bg-background">
       <Sidebar />
 
-      <main className="flex min-w-0 flex-1 flex-col bg-slate-50 p-6">
-        <Card className="shadow-sm">
+      <main className="flex min-w-0 flex-1 flex-col bg-white p-6">
+        <Card className="border-none airy-shadow">
           <CardHeader>
             <CardTitle>Chat Area</CardTitle>
             <CardDescription>
@@ -21,7 +21,7 @@ export default function ChatPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-slate-500">Placeholder content</p>
+            <p className="text-sm text-muted-foreground">Placeholder content</p>
           </CardContent>
         </Card>
       </main>

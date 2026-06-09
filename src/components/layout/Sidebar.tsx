@@ -1,58 +1,40 @@
-import { Hash, MessageSquare, Settings, User } from "lucide-react";
+import { Home, MessageSquare, Settings, UserRound } from "lucide-react";
+
+const navItems = [
+  { icon: Home, label: "Home", active: false },
+  { icon: MessageSquare, label: "Messages", active: true },
+  { icon: UserRound, label: "Contacts", active: false },
+  { icon: Settings, label: "Settings", active: false },
+];
 
 export default function Sidebar() {
   return (
-    <aside className="h-full w-64 flex shrink-0 flex-col border-r border-slate-200 bg-white">
-      <div className="flex items-center gap-3 border-b border-slate-200 px-4 py-5">
-        <div className="flex size-9 items-center justify-center rounded-xl bg-blue-600">
-          <MessageSquare className="size-5 text-white" />
+    <aside className="flex h-full w-20 shrink-0 flex-col items-center border-r border-[#c2c6d6] bg-white py-6">
+      <div className="mb-10 flex flex-col items-center">
+        <div className="mb-1 flex size-12 items-center justify-center rounded-xl bg-[#2170e4] text-white">
+          <MessageSquare className="size-6 fill-current" />
         </div>
-        <span className="text-lg font-semibold text-slate-900">Meet</span>
+        <span className="text-lg font-bold text-primary">M</span>
       </div>
 
-      <nav className="flex flex-1 flex-col gap-6 overflow-y-auto p-4">
-        <section>
-          <h2 className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-slate-500">
-            Rooms
-          </h2>
-          <ul className="space-y-1">
-            <li className="flex items-center gap-2 rounded-lg bg-blue-600 px-3 py-2 text-sm font-medium text-white">
-              <Hash className="size-4 shrink-0" />
-              General
-            </li>
-            <li className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-100">
-              <Hash className="size-4 shrink-0 text-slate-400" />
-              Random
-            </li>
-            <li className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-100">
-              <Hash className="size-4 shrink-0 text-slate-400" />
-              Backend
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-slate-500">
-            Direct Messages
-          </h2>
-          <ul className="space-y-1">
-            <li className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-100">
-              <User className="size-4 shrink-0 text-slate-400" />
-              Alice
-            </li>
-            <li className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-100">
-              <User className="size-4 shrink-0 text-slate-400" />
-              Bob
-            </li>
-          </ul>
-        </section>
+      <nav className="flex w-full flex-1 flex-col gap-2">
+        {navItems.map(({ icon: Icon, label, active }) => (
+          <div
+            key={label}
+            className={`mx-2 flex cursor-pointer flex-col items-center justify-center rounded-xl py-3 transition-colors ${
+              active
+                ? "bg-[#2170e4] text-white"
+                : "text-[#424754] hover:bg-[#e8e8e8]"
+            }`}
+          >
+            <Icon className="size-5" />
+            <span className="mt-1 text-[10px] font-medium">{label}</span>
+          </div>
+        ))}
       </nav>
 
-      <div className="border-t border-slate-200 p-4">
-        <div className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-100">
-          <Settings className="size-4 shrink-0 text-slate-400" />
-          Settings
-        </div>
+      <div className="mt-auto flex size-10 items-center justify-center rounded-full bg-[#e0e3e5] text-sm font-semibold text-[#424754]">
+        U
       </div>
     </aside>
   );
