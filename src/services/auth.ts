@@ -9,7 +9,7 @@ export async function register(
   email: string,
   password: string,
 ): Promise<void> {
-  await api("/auth/register", {
+  return await api<void>("/auth/register", {
     method: "POST",
     body: { username, email, password },
   });

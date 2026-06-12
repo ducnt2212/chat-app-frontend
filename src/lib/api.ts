@@ -12,10 +12,14 @@ export async function api<T>(
 ): Promise<T> {
   const { headers, body, ...rest } = options;
 
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
   const response = await fetch(`${API_URL}${path}`, {
     ...rest,
     headers: {
       "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...headers,
     },
     body: body !== undefined ? JSON.stringify(body) : undefined,

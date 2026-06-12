@@ -1,5 +1,5 @@
-import RegisterPage from "./register/page";
+import ChatPage from "@/app/chat/page";
 
 export default function Home() {
-  return <RegisterPage />;
+  return <ChatPage />;
 }
